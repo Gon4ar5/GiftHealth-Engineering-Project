@@ -8,6 +8,6 @@ class Event
   }
 
   def initialize(name)
-  	@name = name
+  	self.name = name
   end
 end
