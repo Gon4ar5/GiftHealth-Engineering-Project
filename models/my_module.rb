@@ -34,6 +34,6 @@ module MyModule
     created_index = hash.map { |_, v| v.flatten.map(&:name).find_index('created') }.first
     return unless created_index
 
-    hash.map { |_, v| v.flatten[created_index + 1..-1] }.flatten
+    hash.map { |_, v| v[created_index + 1..-1] }.flatten
   end
 end
