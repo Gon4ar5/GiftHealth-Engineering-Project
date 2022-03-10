@@ -4,7 +4,7 @@ class Action
   def initialize(patient, drug, event)
     self.drug = drug
     self.event = event
-  	self.patient = patient
+    self.patient = patient
   end
 
   def create_array_of_action

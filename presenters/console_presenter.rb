@@ -5,7 +5,7 @@ class ConsolePresenter
       fills_count = action[1][1]
       income_value = action[1][0]
 
-      STDOUT.puts("#{parient_name}: #{fills_count} fills $#{income_value} income")
+      $stdout.puts("#{parient_name}: #{fills_count} fills $#{income_value} income")
     end
   end
 end

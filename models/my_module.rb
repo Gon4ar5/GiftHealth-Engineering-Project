@@ -3,7 +3,7 @@ module MyModule
   # ["Nick", "A"]=>[#<Event:0x00007fb95194aa40 @name="created">]
   def grouped_by_patient_and_drug(action_list)
     action_list.map(&:create_array_of_action).group_by { |action| [action[0], action[1]] }
-                           					 .each { |_, value| value.map! { |action| action[2] } }
+                                             .each { |_, value| value.map! { |action| action[2] } }
   end
 
   # Since we have already grouped by patients and medicines, we do not need to store medicines
@@ -26,7 +26,7 @@ module MyModule
   # {["Nick"]=>[{"Nick"=>[0, 0]}], ["Mark"]=>[{"Mark"=>[9, 2]}], ["John"]=>[{"John"=>[-1, 0]}]}
   # [["Nick"]=>[0, 0], ["Mark"]=>[9, 2], ["John"]=>[-1, 0]]
   def remove_dublicated_names_from_hash_values(grouped)
-    grouped.each { |_, v| v.map! { |x| x.values }.flatten! }
+    grouped.each { |_, v| v.map!(&:values).flatten! }
   end
 
   # As a result of executing this method, we get an array of events that occurred after created
@@ -34,6 +34,6 @@ module MyModule
     created_index = hash.map { |_, v| v.flatten.map(&:name).find_index('created') }.first
     return unless created_index
 
-    hash.map { |_, v| v.flatten[created_index + 1 .. -1] }.flatten
+    hash.map { |_, v| v.flatten[created_index + 1..-1] }.flatten
   end
 end
