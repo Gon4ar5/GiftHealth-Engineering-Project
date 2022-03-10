@@ -1,7 +1,7 @@
 class Event
   attr_accessor :name
 
-  event_list = {
+  EVENT_INCOME_LIST = {
   	"created": 0,
   	"filled": 5,
   	"returned": -6
@@ -9,5 +9,13 @@ class Event
 
   def initialize(name)
   	self.name = name
+  end
+
+  def filled_sum
+    EVENT_INCOME_LIST[name.to_sym]
+  end
+
+  def filled_count
+    name == 'filled' ? 1 : -1
   end
 end
