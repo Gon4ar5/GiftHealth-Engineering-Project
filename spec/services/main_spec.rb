@@ -26,7 +26,7 @@ RSpec.describe Main do
       let(:action_list) { [action] }
       let(:result) { {[patient.name, drug.name]=>[event]} }
 
-      it 'label' do
+      it 'returns hash which group by patient and drug' do
         grouped = Main.group_by_patient_and_drug(action_list)
 
         expect(grouped).to eq(result)
@@ -37,7 +37,7 @@ RSpec.describe Main do
       let(:grouped) { { [patient.name, drug.name] => [event] } }
       let(:result) { [{ patient.name => [event] }] }
       
-      it 'label' do
+      it 'returns array hashes which group by patient' do
         grouped_by_patient = Main.group_by_patient(grouped)
 
         expect(grouped_by_patient).to eq(result)
@@ -48,7 +48,7 @@ RSpec.describe Main do
       let(:grouped) { [{ patient.name => [event] }] }
       let(:result) { {} }
 
-      it 'label' do
+      it 'returns hash which group by sum and numbers' do
         grouped_by_sum_and_numbers = grouped.map { |x| Main.group_by_sum_and_numbers(x) }.compact.group_by(&:keys)
 
         expect(grouped_by_sum_and_numbers).to eq(result)
@@ -59,7 +59,7 @@ RSpec.describe Main do
       let(:grouped) { { ["Nick"]=>[{"Nick"=>[0, 0]}], ["Mark"] => [{"Mark"=>[9, 2]}], ["John"] => [{"John"=>[-1, 0]}] } }
       let(:output_result) { {["Nick"]=>[0, 0], ["Mark"]=>[9, 2], ["John"]=>[-1, 0]} }
 
-      it 'label' do
+      it 'returns hash without duplicated names' do
         grouped_without_duplicated_names = Main.remove_duplicated_names_from_hash_values(grouped)
 
         expect(grouped_without_duplicated_names).to eq(output_result)
@@ -71,7 +71,7 @@ RSpec.describe Main do
       let(:grouped) { { "Mark"=>[event, event1, event] } }
       let(:output_result) { [event] }
 
-      it 'label' do
+      it 'returns array of events, but without created event and events before created' do
         grouped_without_events_before_create = Main.delete_events_before_created(grouped)
 
         expect(grouped_without_events_before_create).to eq(output_result)
@@ -83,7 +83,7 @@ RSpec.describe Main do
       let(:grouped) { [event, event1, event] }
       let(:output_result) { { income: 4, count: 1 } }
 
-      it 'label' do
+      it 'returns hash with income and count of filled events' do
         income_and_count_of_event = Main.events_income_and_count(grouped)
 
         expect(income_and_count_of_event).to eq(output_result)
