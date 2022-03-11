@@ -1,6 +1,5 @@
-require './services/main'
-require './services/parser'
-require './presenters/console_presenter'
-require 'pry'
+require './app/services/main'
+require './app/services/parser'
+require './app/presenters/console_presenter'
 
 Main.start

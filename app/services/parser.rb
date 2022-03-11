@@ -1,7 +1,7 @@
-require './models/patient'
-require './models/drug'
-require './models/event'
-require './models/action'
+require './app/models/patient'
+require './app/models/drug'
+require './app/models/event'
+require './app/models/action'
 
 class Parser
   def self.parse_file(filename)
