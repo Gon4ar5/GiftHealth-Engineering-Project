@@ -1,13 +1,15 @@
 require './app/models/action'
 require './app/models/patient'
 require './app/models/drug'
+require './app/models/event'
 
 RSpec.describe Action, type: :model do
   let(:patient_name) { "Nick" }
   let(:drug_name) { "A" }
   let(:patient) { Patient.new(patient_name) }
   let(:drug) { Drug.new(drug_name) }
-  let(:event) { 'filled' }
+  let(:event_name) { 'filled' }
+  let(:event) { Event.new(event_name) }
 
   context 'creation of a action' do
     it 'create action object' do

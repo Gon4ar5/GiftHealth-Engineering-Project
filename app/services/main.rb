@@ -1,11 +1,11 @@
-require './app/services/event_proccessor'
+require './app/services/event_processor'
 
 class Main
-  extend EventProccessor
+  extend EventProcessor
 
-  def self.start
-    action_list = Parser.parse_file('./test_data/myfile.txt')
-    grouped = proccessor(action_list)
+  def self.start(file_path)
+    action_list = Parser.parse_file(file_path)
+    grouped = processor(action_list)
     ConsolePresenter.output(grouped)
   end
 end

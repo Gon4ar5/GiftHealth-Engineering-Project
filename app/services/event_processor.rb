@@ -1,5 +1,5 @@
-module EventProccessor
-  def proccessor(action_list)
+module EventProcessor
+  def processor(action_list)
     grouped = group_by_patient_and_drug(action_list)
     grouped = group_by_patient(grouped)
     grouped = grouped.map(&method(:group_by_sum_and_numbers)).compact.group_by(&:keys)
@@ -46,7 +46,6 @@ module EventProccessor
 
   def events_income_and_count(events_after_created)
     event_filled_count_array = events_after_created.map(&:is_filled?)
-
     { income: event_income_sum(event_filled_count_array), count: filled_count(event_filled_count_array) }
   end
 
