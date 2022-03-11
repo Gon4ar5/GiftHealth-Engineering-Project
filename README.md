@@ -1,5 +1,9 @@
 # GiftHealth Engineering Project
 
+## Task
+
+- A description of what needed to be done can be found here: https://gist.github.com/schneiderderek/a9c0a8b29bcd51f43c9fc198c6c13ece
+
 ## Install, run and testing
 
 ### Requirements:
@@ -60,3 +64,7 @@ $ ruby main.rb test_data/test1.txt
 ### Test_data Folder:
 
 - test1.txt - the file with the test data.
+
+## Github
+
+- https://github.com/Gon4ar5/GiftHealth-Engineering-Project
