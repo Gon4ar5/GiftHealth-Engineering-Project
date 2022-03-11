@@ -5,7 +5,7 @@ class Main
 
   def self.start(file_path)
     action_list = Parser.parse_file(file_path)
-    grouped = processor(action_list)
+    grouped = process(action_list)
     ConsolePresenter.output(grouped)
   end
 end

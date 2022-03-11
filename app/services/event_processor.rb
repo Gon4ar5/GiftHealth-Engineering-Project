@@ -1,5 +1,5 @@
 module EventProcessor
-  def processor(action_list)
+  def process(action_list)
     grouped = group_by_patient_and_drug(action_list)
     grouped = group_by_patient(grouped)
     grouped = grouped.map(&method(:group_by_sum_and_numbers)).compact.group_by(&:keys)
@@ -50,19 +50,19 @@ module EventProcessor
   end
 
   def event_income_sum(event_filled_count_array)
-    filled_count(event_filled_count_array) * Event::EVENT_INCOME_LIST[:filled] + count_of_returned_events(event_filled_count_array) * Event::EVENT_INCOME_LIST[:returned]
+    filled_count(event_filled_count_array) * Event::EVENT_INCOME_LIST[:filled] + returned_events_count(event_filled_count_array) * Event::EVENT_INCOME_LIST[:returned]
   end
 
   # Subtract from the amount of filled the amount of returned
   def filled_count(event_filled_count_array)
-    count_of_filled_events(event_filled_count_array) - count_of_returned_events(event_filled_count_array)
+    filled_events_count(event_filled_count_array) - returned_events_count(event_filled_count_array)
   end
 
-  def count_of_filled_events(event_filled_count_array)
+  def filled_events_count(event_filled_count_array)
     event_filled_count_array.count(true)
   end
 
-  def count_of_returned_events(event_filled_count_array)
+  def returned_events_count(event_filled_count_array)
     event_filled_count_array.count(false)
   end
 end

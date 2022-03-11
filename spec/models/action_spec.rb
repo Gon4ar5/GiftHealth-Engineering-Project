@@ -11,7 +11,7 @@ RSpec.describe Action, type: :model do
   let(:event_name) { 'filled' }
   let(:event) { Event.new(event_name) }
 
-  context 'creation of a action' do
+  context 'creation of an action' do
     it 'create action object' do
       action = Action.new(patient, drug, event)
 
