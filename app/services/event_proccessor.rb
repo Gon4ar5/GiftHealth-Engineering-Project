@@ -9,8 +9,8 @@ module EventProccessor
   # Group patient and drug with event
   # ["Nick", "A"]=>[#<Event:0x00007fb95194aa40 @name="created">]
   def group_by_patient_and_drug(action_list)
-    action_list.map(&:create_array_of_action).group_by { |action| [action[0], action[1]] }              # maybe use hash instead of array with [0],[1]?
-                                             .each { |_, value| value.map! { |action| action[2] } }
+    action_list.map(&:create_hash_of_action).group_by { |action| [action[:patient_name], action[:drug_name]] }
+                                            .each { |_, value| value.map! { |action| action[:event] } }
   end
 
   # Since we have already grouped by patients and medicines, we do not need to store medicines
@@ -45,7 +45,7 @@ module EventProccessor
   end
 
   def events_income_and_count(events_after_created)
-    event_filled_count_array = events_after_created.map(&:is_field?)
+    event_filled_count_array = events_after_created.map(&:is_filled?)
 
     [event_income_sum(event_filled_count_array), filled_count(event_filled_count_array)]
   end

@@ -7,7 +7,7 @@ class Action
     self.patient = patient
   end
 
-  def create_array_of_action
-    [patient.name, drug.name, event]
+  def create_hash_of_action
+    { patient_name: patient.name, drug_name: drug.name, event: event }
   end
 end
