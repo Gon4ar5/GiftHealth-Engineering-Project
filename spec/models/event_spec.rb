@@ -1,7 +1,7 @@
 require './app/models/event'
 
 RSpec.describe Event, type: :model do
-  context 'creation of a event' do
+  context 'creation of an event' do
     let(:event_name) { "filled" }
 
     it 'create event object' do

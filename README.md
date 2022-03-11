@@ -32,20 +32,20 @@ $ ruby main.rb test_data/test1.txt
 
 #### Models Folder:
 
-- action.rb - The action model stores the patient, drug, and event
-- drug.rb
-- event.rb
-- patient.rb
+- `action.rb` - The action model stores the patient, drug, and event
+- `drug.rb`
+- `event.rb`
+- `patient.rb`
 
 #### Services Folder:
 
-- event_processor.rb - It is a module that contains all the necessary methods for my script to work.
-- main.rb - It is a class with one method, within which 3 main actions of the script take place, reading a file, processing data and output to the console.
-- parses.rb - Represents a class for reading a file received as input
+- `event_processor.rb` - A module that processes input data according to conditions.
+- `main.rb` - It is a class with one method, within which 3 main actions of the script take place, reading a file, processing data and output to the console.
+- `parses.rb` - Represents a class for reading a file received as an input
 
 #### Presenters Folder:
 
-- console_presenter.rb - Represents a class for outputting information to the console.
+- `console_presenter.rb` - Represents a class for outputting information to the console.
 
 ### Spec Folder:
 

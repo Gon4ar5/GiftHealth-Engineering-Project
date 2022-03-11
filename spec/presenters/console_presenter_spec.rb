@@ -1,6 +1,6 @@
 require './app/presenters/console_presenter'
 
-describe ConsolePresenter, type: :model do
+describe ConsolePresenter do
   context '.output' do
     let(:input_data) { [['Nick'], [{:income=>0, :count=>0}]] }
     let(:output_data) { "Nick: 0 fills $0 income\n" }
