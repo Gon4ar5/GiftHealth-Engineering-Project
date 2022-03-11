@@ -3,7 +3,7 @@ module EventProccessor
     grouped = group_by_patient_and_drug(action_list)
     grouped = group_by_patient(grouped)
     grouped = grouped.map(&method(:group_by_sum_and_numbers)).compact.group_by(&:keys)
-    grouped = remove_duplicated_names_from_hash_values(grouped)
+    grouped = remove_duplicated_names_from_hash_values(grouped).flatten
   end
   
   # Group patient and drug with event
@@ -47,7 +47,7 @@ module EventProccessor
   def events_income_and_count(events_after_created)
     event_filled_count_array = events_after_created.map(&:is_filled?)
 
-    [event_income_sum(event_filled_count_array), filled_count(event_filled_count_array)]
+    { income: event_income_sum(event_filled_count_array), count: filled_count(event_filled_count_array) }
   end
 
   def event_income_sum(event_filled_count_array)
