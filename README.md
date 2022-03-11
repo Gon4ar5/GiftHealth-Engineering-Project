@@ -5,8 +5,8 @@
 ### Requirements:
 
 - rvm or rbenv
-- ruby 3.0.3
-- bundler version 2.2.32
+- ruby 2.7.2
+- bundler version 2.3.7
 
 ### Usage
 
