@@ -4,6 +4,7 @@
 # documentation.
 
 name: Ruby
+shell: 'script --return --quiet --command "bash {0}"'
 
 on:
   push:
@@ -25,5 +26,4 @@ jobs:
       - name: Install dependencies
         run: bundle install
       - name: Run tests
-        shell: 'script --return --quiet --command "bash {0}"'
         run: rspec spec
