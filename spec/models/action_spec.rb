@@ -28,7 +28,7 @@ RSpec.describe Action, type: :model do
       action = Action.new(patient, drug, event)
       valid_hash = { patient_name: patient_name, drug_name: drug_name, event: event }
 
-      expect(action.create_hash_of_action).to eq(valid_hash)
+      expect(action.create_hash_of_action).to eq('')
     end
   end
 end
