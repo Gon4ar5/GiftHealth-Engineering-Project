@@ -19,7 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        shell: 'script --return --quiet --command "bash {0}"'
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           ruby-version: '3.1'
