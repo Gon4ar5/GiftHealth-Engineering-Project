@@ -4,7 +4,6 @@
 # documentation.
 
 name: Ruby
-shell: 'script --return --quiet --command "bash {0}"'
 
 on:
   push:
@@ -14,6 +13,7 @@ on:
 
 jobs:
   test:
+    shell: 'script --return --quiet --command "bash {0}"'
 
     runs-on: ubuntu-latest
 
