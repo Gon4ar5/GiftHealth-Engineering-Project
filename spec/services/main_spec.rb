@@ -56,8 +56,8 @@ RSpec.describe Main do
     end
 
     context '.remove_duplicated_names_from_hash_values' do
-      let(:grouped) { { ["Nick"]=>[{"Nick"=>[0, 0]}], ["Mark"] => [{"Mark"=>[9, 2]}], ["John"] => [{"John"=>[-1, 0]}] } }
-      let(:output_result) { {["Nick"]=>[0, 0], ["Mark"]=>[9, 2], ["John"]=>[-1, 0]} }
+      let(:grouped) { { ['Nick'] => [{'Nick' => [0, 0]}], ['Mark'] => [{'Mark'=>[9, 2]}], ['John'] => [{'John'=>[-1, 0] }] } }
+      let(:output_result) { { ['Nick'] => [0, 0], ['Mark'] => [9, 2], ['John'] => [-1, 0] } }
 
       it 'returns hash without duplicated names' do
         grouped_without_duplicated_names = Main.remove_duplicated_names_from_hash_values(grouped)
@@ -68,7 +68,7 @@ RSpec.describe Main do
 
     context '.delete_events_before_created' do
       let(:event1) { Event.new('created') }
-      let(:grouped) { { "Mark"=>[event, event1, event] } }
+      let(:grouped) { { 'Mark' => [event, event1, event] } }
       let(:output_result) { [event] }
 
       it 'returns array of events, but without created event and events before created' do
